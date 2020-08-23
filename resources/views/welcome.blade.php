@@ -11,11 +11,20 @@
     <title>YouTube</title>
   </head>
   <body>
+
+    <div class="container my-1">
+      <h1 class="display-4">YouTube</h1>
+      <form action="#" method="POST">
+      @csrf
+
+          <input type="search" name="nombre" placeholder="Enter Search" class="form-control mb-2" value="">
+          <!-- TEngo que poner el name='' con el nombre del campo de la Base Datos a usar -->
+          <input type="number" name="descripcion" placeholder='Max Results' class="form-control mb-2" value=""> {{-- value old mantiene la informacion del campo si se refresca la paguina ('tiene que llevar el name') --}}
+          <button class="btn btn-primary btn-block" type="submit">Search</button>
+      </form>
+    </div>
+
 <?php
-
-
-//require_once '../../vendor/autoload.php';
-
 $htmlBody = <<<END
 <form method="GET">
   <div>
