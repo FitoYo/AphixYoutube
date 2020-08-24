@@ -14,7 +14,7 @@
 
     <div class="container my-1">
       <h1 class="display-4">YouTube</h1>
-      <form action="#" method="POST">
+      <form action="{{ route('back') }}" method="POST">
       @csrf
 
           <button class="btn btn-primary btn-block" type="submit">ComeBack</button>
@@ -22,29 +22,9 @@
     </div>
     <div class="container my-1">
       <h1 class="display-4">Results</h1>
-     <table class="table">
-      <thead>
-        <tr>
-          <th scope="col"></th>
-          <th scope="col">Nombre</th>
-          <th scope="col"></th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-    <tbody>
-    @foreach($results as $items)
-
-        <tr>
-          <th scope="row"></th>
-          <td>{{$items->snippet}}</td>
-
-          <td><iframe width="420" height="315" src="https://www.youtube.com/embed/{{$items->id->videoId}}">
-</iframe></td>
-        </tr>
-
-    @endforeach
-    </tbody>
-  </table>
+      @foreach($results as $items)
+        <dir class="d-inline"><iframe width="210" height="155" src="https://www.youtube.com/embed/{{$items->id->videoId}}"></iframe></dir>
+      @endforeach
     </div>
 
 
