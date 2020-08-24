@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use HTTP;
 use App;
+use Google_Client;
+use Google_Service_YouTube;
 
 class HomeController extends Controller
 {
@@ -32,9 +34,10 @@ class HomeController extends Controller
       'q' => $request->search,
       'maxResults' => $request->max,
       ));
+    return view('resultado', compact('searchResponse'));
    }
 
    public function resultado(){
-
+   	return view('resultado');
    }
 }
