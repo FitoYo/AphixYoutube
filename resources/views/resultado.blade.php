@@ -22,23 +22,29 @@
     </div>
     <div class="container my-1">
       <h1 class="display-4">Results</h1>
+     <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Nombre</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
     <tbody>
-        {{--<?php print_r($results); ?> --}}
-
     @foreach($results as $items)
 
         <tr>
           <th scope="row"></th>
-          <td>{{$items->id->kind}}</td>
           <td>{{$items->snippet}}</td>
-          <td>{{$items->id->videoId}}</td>
-          <td>{{$items->id->channelId}}</td>
-          <td>{{$items->id->playlistId}}</td>
 
+          <td><iframe width="420" height="315" src="https://www.youtube.com/embed/{{$items->id->videoId}}">
+</iframe></td>
         </tr>
 
     @endforeach
     </tbody>
+  </table>
     </div>
 
 
