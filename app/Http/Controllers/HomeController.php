@@ -25,11 +25,9 @@ class HomeController extends Controller
   	$client = new Google_Client();
   	$client->setDeveloperKey($KEY);
 
-  // Define an object that will be used to make all API requests.
   	$youtube = new Google_Service_YouTube($client);
 
-  	  // Call the search.list method to retrieve results matching the specified
-    // query term.
+
    $results = $youtube->search->listSearch('id,sneppet', array('q' => $request->search, 'maxResults' => $request->max));
 
     return view('resultado', compact('results'));
