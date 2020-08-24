@@ -15,10 +15,11 @@ class HomeController extends Controller
    }
 
    public function buscar(Request $request){
-    $request->validate([
+    $request->all();
+   /*$request->validate([
    			'search' => 'required',
    			'max' => 'required'
-   	]);
+   	]);*/
 
     $KEY = 'AIzaSyC9yRV-PnaFesxj-IjTfTf60E1bAPDAw00';
 
@@ -28,7 +29,10 @@ class HomeController extends Controller
   	$youtube = new Google_Service_YouTube($client);
 
 
-   $results = $youtube->search->listSearch('id,sneppet', array('q' => $request->search, 'maxResults' => $request->max));
+   $results = $youtube->search->listSearch('id', array(
+         'q' => $request->search,
+          'maxResults' => $request->max
+        ));
 
     return view('resultado', compact('results'));
    }

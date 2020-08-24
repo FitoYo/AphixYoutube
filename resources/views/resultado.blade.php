@@ -23,11 +23,12 @@
     <div class="container my-1">
       <h1 class="display-4">Results</h1>
     <tbody>
-   @foreach($results['items'] as $item)
+        {{--<?php print_r($results); ?> --}}
+    @foreach($results as $items)
         <tr>
-          <th scope="row">{{$item->id}}</th>
+          <th scope="row">{{$items->id}}</th>
           <td></td>
-          <td> {{$item->snippet}} </td>
+          <td> {{$items->snippet}} </td>
           <td></td>
         </tr>
     @endforeach
