@@ -15,7 +15,7 @@ class HomeController extends Controller
    }
 
    public function buscar(Request $request){
-   	$request->validate([
+    $request->validate([
    			'search' => 'required',
    			'max' => 'required'
    	]);
@@ -30,14 +30,12 @@ class HomeController extends Controller
 
   	  // Call the search.list method to retrieve results matching the specified
     // query term.
-   $searchResponse = $youtube->search->listSearch('id','snippet', array(
-      'q' => $request->search,
-      'maxResults' => $request->max,
-      ));
-    return view('resultado', compact('searchResponse'));
+   $results = $youtube->search->listSearch('id,sneppet', array('q' => $request->search, 'maxResults' => $request->max));
+
+    return view('resultado', compact('results'));
    }
 
-   public function resultado(){
-   	return view('resultado');
+   public function back(){
+   	return view('welcome');
    }
 }

@@ -14,7 +14,7 @@
 
     <div class="container my-1">
       <h1 class="display-4">YouTube</h1>
-      <form action="{{ route('welcome') }}" method="POST">
+      <form action="#" method="POST">
       @csrf
 
           <button class="btn btn-primary btn-block" type="submit">ComeBack</button>
@@ -22,7 +22,8 @@
     </div>
     <div class="container my-1">
       <h1 class="display-4">Results</h1>
-    @foreach($searchResponse as $Results)
+    <tbody>
+   @foreach($results['items'] as $item)
         <tr>
           <th scope="row">{{$item->id}}</th>
           <td></td>
@@ -30,6 +31,7 @@
           <td></td>
         </tr>
     @endforeach
+    </tbody>
     </div>
 
 

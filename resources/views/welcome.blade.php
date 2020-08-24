@@ -14,11 +14,11 @@
 
     <div class="container my-1">
       <h1 class="display-4">YouTube</h1>
-      <form action="{{ route('resultado') }}" method="POST">
+      <form action="{{ route('buscar') }}" method="POST">
       @csrf
 
-          <input type="search" name="search" placeholder="Enter Search" class="form-control mb-2" value="">
-          <input type="number" name="max" placeholder='Max Results' class="form-control mb-2" value="">
+          <input type="text" name="search" placeholder="Enter Search" class="form-control mb-2" value="">
+          <input type="number" name="max" class="form-control mb-2" value="">
           <button class="btn btn-primary btn-block" type="submit">Search</button>
       </form>
     </div>
